@@ -1,0 +1,6 @@
+name|returns the script's name with its extension|name
+nameOnly|returns the script's name without its extension|nameOnly
+extension|returns the script's extension|extension
+path|returns the script's full path with its name and extension|path
+folder|returns the script's current folder/directory|folder
+include(file)|lets you include other JavaScript files in your current script|include(

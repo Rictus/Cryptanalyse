@@ -1,0 +1,3 @@
+log|this lets you print messages to the results panel|log(
+clear|this lets you clear the console's results panel|clear()
+count|returns the number of output messages in the results|count()

@@ -1,0 +1,45 @@
+app|returns the app's folder path|app
+snippets|returns the app's snippets path|snippets
+scripts|returns the app's scripts path|scripts
+themes|returns the app's themes path|themes
+docs|returns the app's documentations path|docs
+settings|returns the app's settings file path|settings
+computer|returns the path to My Computer|computer
+desktop|returns the path to the Desktop folder|desktop
+documents|returns the path to My Documents folder|documents
+music|returns the path to My Music folder|music
+videos|returns the path to My Videos folder|videos
+pictures|returns the path to My Pictures folder|pictures
+recent|returns the path to the Recent folder|recent
+start|returns the path to the Start Menu folder|start
+startup|returns the path to the Startup folder|startup
+system|returns the path to the System folder|system
+systemx86|returns the path to the System (x86) folder|systemx86
+programs|returns the path to the Programs folder in the Start Menu folder|programs
+programFiles|returns the path to the Program Files folder|programFiles
+programFilesx86|returns the path to the Program Files (x86) folder|programFilesx86
+windows|returns the path to the Windows folder|windows
+sendTo|returns the path to the SendTo folder|sendTo
+appData|returns the path to the Application Data folder|appData
+adminTools|returns the path to the Administrative Tools folder|adminTools
+fonts|returns the path to the Fonts folder|fonts
+cdBurning|returns the path to the file-CD writing area|cdBurning
+netShortcuts|returns the path to the Network Shortcuts folder|netShortcuts
+netCache|returns the path to the temporary Internet files/cache folder|netCache
+cookies|returns the path to the Internet cookies folder|cookies
+resources|returns the path to the system's Resources folder|resources
+localResources|returns the path to the Local Resources folder|localResources
+favorites|returns the path to the Favorites folder|favorites
+history|returns the path to the Internet's History items folder|history
+pubDocuments|returns the path to the public Documents folder|pubDocuments
+pubDesktop|returns the path to the public Desktop folder|pubDesktop
+pubStartup|returns the path to the public Startup folder|pubStartup
+pubStart|returns the path to the public Start  Menu folder|pubStart
+pubAdminTools|returns the path to the public Administrative Tools folder|pubAdminTools
+pubAppData|returns the path to the public Application Data folder|pubAppData
+pubPrograms|returns the path to the public Programs folder in the Start Menu folder|pubPrograms
+pubProgramFiles|returns the path to the public Program Files folder|pubProgramFiles
+pubProgramFilesx86|returns the path to the public Program Files (x86) folder|pubProgramFilesx86
+pubMusic|returns the path to the public My Music folder|pubMusic
+pubVideos|returns the path to the public My Videos folder|pubVideos
+pubPictures|returns the path to the public My Pictures folder|pubPictures

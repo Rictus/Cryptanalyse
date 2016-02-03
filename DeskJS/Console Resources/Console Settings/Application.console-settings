@@ -1,0 +1,39 @@
+{
+   
+   // this sets the window as the top-most above other windows...
+   "top_most" :  false,
+   
+   // this sets the opacity or transparency of the app's windows;
+   // the minimum value is 10 while the maximum value is 100...
+   "window_opacity" : 99,
+   
+   // this applies the theme selected in the application...
+   "theme" : "Light",
+   
+   // this allows the app to preserve the previously executed js commands...
+   "remember_previous_commands" : true,
+   
+   // this sets the editor's pointer character (by default is: >>)
+   // you can use any unicode characters accepted like: # or ~
+   // also, just try using two characters if the character you're
+   // specifying is small, like try: ## or !!
+   "editor_pointer_character" : ">>",
+   
+   // allow only selected code to run if at all there is any selection...
+   "allow_running_selections" : true,
+   
+   // this lets you enable or disable viewing tooltips...
+   "show_tooltips" : true,
+   
+   // this allows you to control what happens when you press on 'ESCAPE';
+   // you can either set it to:
+   // 
+   // "minimize": minimizes the application to the taskbar.
+   // "maximize": maximizes the window.
+   // "pin": pins the app to the notifications/system tray
+   // "exit": exits DeskJS.
+   // "" or "none": does nothing.
+   // "(your own js code here)": allows you to insert your own js code too - without brackets!
+   "on_pressing_escape" : "minimize"
+   
+}

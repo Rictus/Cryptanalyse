@@ -1,0 +1,35 @@
+alert|displays a basic popup-box for outputting messages|alert(
+break|lets you jump out of a loop e.g. a while loop|break
+case|this is used in a "switch...case" to declare a block of code|case 
+catch|used in "try...catch" statements to catch errors within blocks of code|catch
+confirm|displays an okay/cancel confirmation dialog-box|confirm(
+const|this will let you declare a variable as a constant (cannot change)|const
+continue|this lets you jump one step forward when inside a loop|continue
+delete|lets you delete variables and object properties|delete 
+do|lets you declare a "do...while" loop in JavaScript|do 
+else|used in an "if...else" statement to process conditions|else 
+else if|used in an "if...else if" statement to process conditions|else if (
+false|this is a boolean value which is also represented by 0|false
+for|used to declare a "for" loop e.g. for (i = 0; i < 10; i++)|for (
+function|this lets you declare a new JavaScript function|function 
+if|lets you begin a conditional "if" statement block of code|if (
+in|this is used in a "for...in" loop used to process values one-by-one|in 
+instanceof|lets you check if a certain varaible/object is an instance of a certain type|instanceof 
+new|this lets you create a new instance of a certain variable/object|new 
+null|this keyword describes (or sets) a value as having nothing in memory|null
+print|prints messages to the results panel|print(
+prompt|this asks the user to enter some text as their input|prompt(
+return|this lets you declare a specified value/object in a function|return 
+switch|lets you declare a "switch...case" statement for processing conditions|switch (
+this|allows you to access other members/objects within a scope of code|this
+throw|this lets you throw your own custom errors in JavaScript|throw
+toString|this converts and returns any value as a string|toString()
+true|this is a boolean value which is also represented by 1|true
+try|lets you begin a "try...catch" statement for catching errors|try
+typeof|this lets you check what type of variable a value is|typeof 
+undefined|this keyword describes a variable/object as not existing in memory|undefined
+var|this lets you declare variables in JavaScript|var 
+valueOf|a function that returns the main (or primitive) value of any String|valueOf()
+void|this lets you define expressions (even functions) that return an "undefined" value|void 
+while|lets you declare a "while" loop in JavaScript|while (
+with|this lets you use an expression, object, or value to execute a list of statements|with

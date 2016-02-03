@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Popups</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Segoe UI", Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 14px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 2px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 1px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 1px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>JavaScript popup boxes</h2>
+<blockquote>
+<p>What are <strong>JavaScript popup boxes</strong>?</p>
+</blockquote>
+<p>Popup boxes, or dialog boxes are specialized windows designed to <strong>get</strong> or <strong>output</strong> user-information to the screen. They are <strong>synchronous</strong> meaning that they need to be shown and executed before any other operation can be executed thereafter.</p>
+<p>By default, there are three popup boxes designed in JavaScript that rest primarily in browsers. They are the <code>alert</code>, <code>confirm</code>, and the <code>prompt</code> dialogs. This is not to say that they need to exist in JavaScript for it to be complete. No, they are just minor additions to the language so that they may assist developers with getting user information and outputting information to users. By default, they exist in the <strong>DOM</strong> (Document Object Model) which is an addition to the language implemented in all modern browsers that allows web developers to program web-pages easily. You won't need to worry about this at all since the DOM is not a standard part of JavaScript. JavaScript is pure in, and of itself without the DOM. If you're a beginner, you can choose to learn the language itself without learning the DOM side of it. Just check out <a href="http://www.w3schools.com/js/js_intro.asp">w3schools</a> to learn more. Believe me, JavaScript will make you smile if you're willing to love and learn it. It's never impossible.</p>
+<p>For most JavaScript consoles that exist outside the browser, they don't usually have these additions since they aren't a standard feature defined in the <strong>ECMA</strong> specification document. However, they are by default included in DeskJS so as to help users be able to do some Input/Output just like in the browser. By default, DeskJS's dialogs conform (or adapt) to the same format and return-types as those of the browser. They however have been extended to include more parameters as we shall see later in the section: <strong>Additional parameters</strong>. Below are some of the basic examples:</p>
+<blockquote>
+<p><code>alert(&quot;hello world&quot;)</code> : this returns an <code>undefined</code> value</p>
+<p><code>confirm(&quot;are you sure?&quot;)</code> : this returns <code>true</code> or <code>false</code> depending on what the user has clicked (either <em>okay</em> or <em>cancel</em> - still the <strong>Enter</strong> or <strong>Escape</strong> keys can be used)</p>
+<p><code>prompt(&quot;enter your name&quot;)</code> : this returns <code>null</code> if nothing has been entered or the user's input if the user typed-in something - the <strong>Enter</strong> or <strong>Escape</strong> keys can still be used here</p>
+</blockquote>
+<h3>Additional parameters</h3>
+<h4>Alert</h4>
+<p><img src="Images/alert_screenshot.png" alt="alert-screenshot" /></p>
+<p>The <strong>alert</strong> popup has an additional three parameters, that is, <code>title</code>, <code>icon</code> and <code>button text</code>.
+They follow this format in declaration:</p>
+<blockquote>
+<p><code>alert(message, title, icon, button_text)</code></p>
+</blockquote>
+<p>The <code>title</code> parameter allows you to set a title for the alert popup box.
+The <code>icon</code> parameter allows you to set an icon for the alert box. It should be of <strong>String</strong> type.
+The <code>button_text</code> or simply <code>button text</code> lets you set the text for the alert's button.</p>
+<p>By default, you can specify some pre-defined icons in the <code>icon</code> parameter. Below is a list of these icons:</p>
+<ul>
+<li><strong>&quot;alert&quot;</strong></li>
+<li><strong>&quot;action&quot;</strong></li>
+<li><strong>&quot;information&quot;</strong></li>
+<li><strong>&quot;input&quot;</strong></li>
+<li><strong>&quot;key&quot;</strong></li>
+<li><strong>&quot;message&quot;</strong></li>
+<li><strong>&quot;okay&quot;</strong> or <strong>&quot;ok&quot;</strong></li>
+<li><strong>&quot;question&quot;</strong></li>
+<li><strong>&quot;quote&quot;</strong></li>
+<li><strong>&quot;select&quot;</strong></li>
+</ul>
+<p>If however you want to use an icon saved elsewhere in your computer, you can specify it's path followed by it's name and extension. An example is: <code>C:/users/admin/Desktop/myicon.png</code></p>
+<blockquote>
+<p><strong><em>TIP:</em></strong> You can find these icons in the <em>Default Icon packages</em> folder, within the <em>Dialogs</em> folder of both the <em>Dark</em> and <em>Light</em> icons. Other themes can also have their own icons with the same names as the ones stated above.</p>
+</blockquote>
+<p>These icons can also be used in the other JavaScript popup boxes. If however you want to use an external icon elsewhere in your computer, just type its path in the <code>icon</code> parameter.</p>
+<p>Below is a list of examples with the stated parameters:</p>
+<blockquote>
+<p><code>alert(&quot;hello world&quot;, &quot;my title&quot;, &quot;message&quot;)</code>
+<code>alert(&quot;hello world&quot;, &quot;my title&quot;, &quot;information&quot;, &quot;click me!&quot;)</code>
+<code>alert(&quot;this is my icon&quot;, &quot;hello icon&quot;, &quot;C:/users/admin/Desktop/myicon.png&quot;)</code>
+<code>alert(&quot;you have completed the program!&quot;, &quot;successfull&quot;, &quot;okay&quot;, &quot;close&quot;)</code></p>
+</blockquote>
+<h4>Confirm</h4>
+<p><img src="Images/confirm_screenshot.png" alt="confirm-screenshot" /></p>
+<p>The <strong>confirm</strong> dialog, just like the <strong>alert</strong> dialog also features two more parameters, that is the <code>title</code> and <code>icon</code> parameters, but with two additional parameters for setting the <em>okay</em> and <em>cancel</em> button texts. The same rules and icons also apply as in the alert dialog.</p>
+<blockquote>
+<p><code>confirm(message, title, icon, button1_text, button2_text)</code></p>
+</blockquote>
+<p>Below are some examples:</p>
+<blockquote>
+<p><code>confirm(&quot;are you sure?&quot;, &quot;please answer&quot;, &quot;question&quot;, &quot;yes&quot;)</code>
+<code>confirm(&quot;do you want to quit?&quot;, &quot;quit execution...&quot;, &quot;action&quot;, &quot;yes&quot;, &quot;no&quot;)</code>
+<code>confirm(&quot;do you want to begin?&quot;, &quot;begin program&quot;, &quot;alert&quot;, &quot;sure&quot;, &quot;later&quot;)</code></p>
+</blockquote>
+<h4>Prompt</h4>
+<p><img src="Images/prompt_screenshot.png" alt="prompt-screenshot" /></p>
+<p>The <strong>prompt</strong> dialog is probably one of the most used dialogs of them all. This is because it's the one mandated with getting a user's input. Just like the default parameters for the <strong>prompt</strong> dialog in browsers are designed, so is DeskJS's prompt dialog. It also has the most parameters than any of the above stated. It has additional two parameters that is the <code>input_type</code> and <code>input_length</code> which assist you in specifying the user's input better.</p>
+<p>Below is the parameter-list format:</p>
+<blockquote>
+<p><code>prompt(message, default_text, title, icon, button1_text, button2_text, input_type, input_length)</code></p>
+</blockquote>
+<p>The <code>default_text</code> parameter refers to the default input that will be set and shown to the user right before the user begins typing his/her information.</p>
+<p>The <code>input type</code> parameter allows you to specify whether you want the user to enter <strong>masked (password)</strong> text format, <strong>unmasked (normal)</strong> text format, <strong>numeric (number)</strong> text format, <strong>decimal number</strong> text format, <strong>uppercase</strong> text format, or <strong>lowercase</strong> text format. If you just want to let the user type anything, you can just leave this parameter blank (<em>like</em> <code>&quot;&quot;</code>). </p>
+<p>Below is the list of default values you can use for this parameter as stated:</p>
+<ul>
+<li><code>&quot;masked&quot;</code> or <code>&quot;password&quot;</code> or <code>&quot;m&quot;</code> : for passwords or masked user-inputs</li>
+<li><code>&quot;unmasked&quot;</code> or <code>&quot;normal&quot;</code> or <code>&quot;&quot;</code> : for normal user-inputs <em>(not a must)</em></li>
+<li><code>&quot;numeric&quot;</code> or <code>&quot;number&quot;</code> or <code>&quot;num&quot;</code> or <code>&quot;n&quot;</code> : for number user-inputs <em>(e.g. 123)</em></li>
+<li><code>&quot;decimal&quot;</code> or <code>&quot;dec&quot;</code> or <code>&quot;d&quot;</code> : for decimal number user-inputs <em>(e.g. 12.567)</em></li>
+<li><code>&quot;upper&quot;</code> or <code>&quot;u&quot;</code> : for specifying upper-case user-inputs</li>
+<li><code>&quot;lower&quot;</code> or <code>&quot;l&quot;</code> : for specifying lower-case user-inputs</li>
+</ul>
+<p>Some good examples with the said parameters are:</p>
+<blockquote>
+<p><code>prompt(&quot;enter your name&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;masked&quot;)</code>
+<code>prompt(&quot;enter your name in upper-case&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;upper&quot;)</code>
+<code>prompt(&quot;enter your name in lower-case&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;lower&quot;)</code>
+<code>prompt(&quot;type any number you want&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;numeric&quot;)</code>
+<code>prompt(&quot;type any decimal number&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;decimal&quot;)</code></p>
+</blockquote>
+<p>Notice that you won't exactly need to specify other parameters if you don't want to. This especially goes for the two buttons' texts. If left empty, they'll default to their own pre-defined texts that is, <em>okay</em> and <em>cancel</em>.</p>
+<p>The <code>input length</code> parameter allows you to specify the length of a user's input while they're typing. This parameter requires an <strong>Integer</strong> value type such as <code>10</code> or <code>50</code>. The <strong>maximum</strong> input length is <code>2,147,483,647</code> so you don't have to feel constrained if you want the user to enter large strings. You may however experience some performance delays when typing much larger strings exceeding about <code>2.0 MB</code> of size. Once you specify the length of input, a user will not be able to go beyond the set value thus limiting him/her from progressing beyond the set length.</p>
+<p>Below are some examples illustrating the same:</p>
+<blockquote>
+<p><code>prompt(&quot;type any decimal number below&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;decimal&quot;)</code>
+<code>prompt(&quot;what is your favorite number?&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;numeric&quot;)</code>
+<code>prompt(&quot;what was your score last year?&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;decimal&quot;, 12)</code></p>
+</blockquote>
+<p>With DeskJS therefore, the capabilities of the basic JavaScript popup-boxes have been extended to match the users' needs within the desktop arena. However, such additions to the popup boxes are only limited to DeskJS. They won't be recognized in the browser at all, unless otherwise implemented.</p>
+<blockquote>
+<p><a href="Objects.html"> Next guide: <strong>JavaScript Objects supported</strong></a></p>
+</blockquote>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

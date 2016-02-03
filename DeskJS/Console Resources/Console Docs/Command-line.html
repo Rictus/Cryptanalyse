@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Command-line</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Segoe UI", Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 14px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 2px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 1px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 1px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>Command line reference</h2>
+<p>DeskJS has the ability to execute JavaScript code and files right from within the <strong>command prompt</strong> in Windows. In order to achieve this, you'll either need to specify the path to the current DeskJS's folder right from within the command prompt (<em>cmd</em> in short), or alternatively and much easier, is by just opening DeskJS's folder (where the application resides), and typing within the address-bar <em>(the one at the top)</em> <code>cmd</code> then press on <code>ENTER</code>. Also, make sure it's the only text in the address-bar. <em>See the example below:</em></p>
+<p><img src="Manuals/Images/cmd_screenshot.png" alt="command-line screenshot" /></p>
+<p>You can then type <code>deskjs</code> in the command prompt followed by a space, then either of the below options (or none at all), followed by a space, then your code (in <em>single</em> or <em>double</em> quotes):</p>
+<ul>
+<li><code>-o</code> launches the app then executes code</li>
+<li><code>-s</code> silently executes code without launching the app but displays error dialogs if at all any error is found in your JavaScript code</li>
+<li><code>-sh</code> silently executes code but hides error dialogs</li>
+</ul>
+<p>As an addition, you can also check the version of the application through the command-line option: <code>-version</code> or <code>-v</code></p>
+<blockquote>
+<p><strong>NOTE:</strong>
+<em>By default, code is silently executed (won't launch the app) in the command-line, and if at all any errors result from the code or file typed, a dialog will always popup displaying the Error and Line-number information to help ease the burden of debugging your scripts. Also, you won't need to type exactly how the app's name is written, meaning that it's not case-sensitive, so a name like DESKJS, DeskJS, or even deskjs will still work.</em></p>
+</blockquote>
+<h3>Examples</h3>
+<p>If you want to use DeskJS by specifying the app's path from within the command line, type the path of the application followed by a space, then the app's name.</p>
+<p>For example:</p>
+<blockquote>
+<p><code>C:\Users\admin\Desktop\DeskJS deskjs &quot;code here&quot;</code></p>
+</blockquote>
+<p>If you're specifying options you can do either of the below:</p>
+<blockquote>
+<p><code>C:\Users\admin\Desktop\DeskJS deskjs -o &quot;code here&quot;</code>
+<code>C:\Users\admin\Desktop\DeskJS deskjs -s &quot;code here&quot;</code></p>
+</blockquote>
+<p>You can also <em>cd</em> (change directory) to the app's directory/folder by typing <code>cd &quot;path\to\folder&quot;</code>, then pressing on <code>ENTER</code>. For example:</p>
+<blockquote>
+<p><code>cd C:\Users\admin\Desktop\DeskJS</code></p>
+</blockquote>
+<p>...then type:</p>
+<blockquote>
+<p><code>deskjs &quot;your code here&quot;</code></p>
+</blockquote>
+<p>Options still do apply here:</p>
+<blockquote>
+<p><code>deskjs -o &quot;code here&quot;</code> or 
+<code>deskjs -s &quot;code here&quot;</code></p>
+</blockquote>
+<p>If you want to view your outputs via the command-line, you'll essentially need to use the basic JavaScript popup-boxes like an <code>alert</code> box since no results are returned directly to the command prompt.</p>
+<p>A good example is, let's say you want to calculate <code>250 x 70</code>, all you'll need to write is:</p>
+<blockquote>
+<p><code>deskjs alert(250*70)</code></p>
+</blockquote>
+<p>...then the result will be displayed with the alert box.</p>
+<p>This trick will let you devise better ways of getting your results back even when you're bored somewhere and want to do some quick scripting. You may however make your work easier by configuring other <em>text editors</em> to return your results back with ease. You will be guided on such an example later on in this guide.</p>
+<p>Keep in mind that <em>double quotes</em> (<code>&quot;&quot;</code>) should be used whenever you're writing code that includes spaces which are not within any quotes whereas <em>single quotes</em> should always be used whenever you're wrapping simple strings such as <code>alert('hello world')</code>. For example, say you want to write <code>var x = 'john'; alert(x)</code> in the command prompt. You'll need to wrap the code with <em>double quotes</em> like this:</p>
+<blockquote>
+<p><code>deskjs &quot;var x = 'john'; alert(x)&quot;</code></p>
+</blockquote>
+<p>Also, if you're wrapping your code within <em>double-quotes</em>, then make sure that they do not appear anywhere inside your code. For example:</p>
+<blockquote>
+<p><code>deskjs &quot;var x = &quot;john&quot;; alert(x)&quot;</code> - <strong>this will produce an Error</strong></p>
+</blockquote>
+<p>This is because the added quotes surrounding <code>john</code> will split your code apart and make the Interpreter select <code>&quot;john&quot;</code> as the code to interpret rather than the whole code written. In essence it will look like you're doing this:</p>
+<blockquote>
+<p><code>deskjs &quot;john&quot;</code></p>
+</blockquote>
+<p>Your code will therefore produce a <code>ReferenceError</code> since <code>&quot;john&quot;</code> is not defined or declared.</p>
+<p>However, if you're including code which has no spaces, then any strings you write in the code should be wrapped within <em>single quotes</em>. A good example is this:</p>
+<blockquote>
+<p><code>deskjs alert('hello world!')</code></p>
+</blockquote>
+<p>So always try to follow these guidelines as you use the command-line in executing your scripts.</p>
+<h3>Executing files</h3>
+<p>It's always an easier option to execute code in files that you've saved especially within the <strong>Console Scripts</strong> folder. Now, let's say you have a script file called <em>hello world.js</em> in the &quot;Console Scripts&quot; folder. Assuming you're within the application's folder in the command prompt, you can easily execute it by typing:</p>
+<blockquote>
+<p><code>deskjs hello world</code></p>
+</blockquote>
+<p>Notice that you won't even need to type the extension <strong>.js</strong> as DeskJS will scan through your saved script files and check to see if the file you've specified is of JavaScript type. Yet still, you can specify the extension if you so wish to. This will also apply for script files stored elsewhere.</p>
+<p>To execute script files located elsewhere, you'll only need to specify their paths, for example:</p>
+<blockquote>
+<p><code>deskjs C:\Users\admin\Desktop\hello world</code></p>
+</blockquote>
+<p>Also to note, you can even execute script files by dragging-and-dropping them into the application's icon <em>(or shortcut if it's in your Desktop or elsewhere)</em>  if you simply want to run some code in a script file without directly launching the application. By default, if any errors do exist, you'll be alerted about them and where they occur in the file with regards to their line-numbers.</p>
+<p>If you love <em>geeking</em> things out, you can even write <em>batch</em> scripts or configure other editors like <em>Notepad++</em> to execute JavaScript code via DeskJS quickly and seamlessly. However, even for beginners, it's never impossible to explore beyond the boundaries no matter how difficult and daunting the task may be! Below is a small guide on configuring Sublime Text with a DeskJS build-system to enable running your JavaScript code. Hope you'll find it useful. <em>If you already know how to do this, you can just skip this section.</em></p>
+<h4>Configuring <em>Sublime Text</em> with a DeskJS build system</h4>
+<blockquote>
+<p><strong>What is Sublime Text?</strong>
+It's an amazingly powerful editor for code and prose writing. Plus, it's supported on all major Operating Systems namely, Windows, Mac, and Linux. You can download it via it's official homepage: <a href="www.sublimetext.com">www.sublimetext.com</a>.</p>
+</blockquote>
+<p>With the numerous number of developers getting a hand on Sublime Text's powerful features right at their fingertips, well, it was worth writing a <em>mini guide</em> on how to achieve running JavaScript code through DeskJS right from within Sublime Text.</p>
+<p>First, you'll need to download a copy of <em>Sublime Text</em> (a portable or installer version). Then, launch the app, go to the <code>Tools</code> menu, then select <code>Build System</code>. At the very bottom of the menu that appears, you'll see <code>New Build System...</code>. Select it.</p>
+<p>From there on, you can choose to replace the currently set text with this template format:</p>
+<pre><code>{
+
+    &quot;cmd&quot;: [&quot;path to DeskJS.exe&quot;,&quot;options&quot;,&quot;$file&quot;],
+
+    &quot;selector&quot;:&quot;source.js&quot;
+}
+</code></pre>
+
+<p>Below is an explanation of the above format:</p>
+<ul>
+<li><code>&quot;path to DeskJS.exe&quot;</code> - This represents the place where you will insert the path to DeskJS. An example is <code>&quot;C:/Users/admin/Desktop/NewFolder/DeskJS.exe&quot;</code></li>
+<li><code>&quot;options&quot;</code> - This represents the place where you will insert an option related to executing your JavaScript code as discussed at the beginning of this guide. To do this, you can include an option like <code>&quot;-s&quot;</code> or <code>&quot;-sh&quot;</code>. This is however optional so you may not even need it if you want to see error messages by default. If however you want to hide the error messages, just include <code>&quot;-sh&quot;</code> and that will be done for you.</li>
+<li><code>&quot;$file&quot;</code> - This is the place where Sublime Text inserts the path of your current JavaScript file. You can leave this property since Sublime Text dynamically changes this setting to whatever file it is you're currently in. It's what is referred to as a <em>place-holder</em>.</li>
+<li><code>&quot;selector&quot;:&quot;source.js&quot;</code> - This setting means that DeskJS will only be running &quot;<strong>.js</strong>&quot; files which are JavaScript files. You can however change it to run other file types like maybe &quot;<strong>.txt</strong>&quot; by setting it to <code>source.txt</code>. However, if you're not into such deep details, you can keep it simple and clear by setting it to run JavaScript files only as shown.</li>
+</ul>
+<p>A good example with the above format is this:</p>
+<pre><code>{
+
+    &quot;cmd&quot;: [&quot;C:/Users/admin/DeskJS/DeskJS.exe&quot;,&quot;-sh&quot;,&quot;$file&quot;],
+
+    &quot;selector&quot;:&quot;source.js&quot;
+}
+</code></pre>
+
+<blockquote>
+<p>Just to be precise, make sure you don't remove the <code>{</code> and <code>}</code> at the top and bottom since this is a file format known as JSON (JavaScript Object Notation).</p>
+</blockquote>
+<p>After this, you can save the file as <em>DeskJS</em> (or any name you wish) in the default location where Sublime Text will present to you. Normally, it displays to you the <code>&quot;Packages\User&quot;</code> folder. You can then save it there.</p>
+<p>Now, to run any JavaScript file in Sublime Text, open any JavaScript file in Sublime Text or just create a new one if you have none. Then you can type some quick code, for example:</p>
+<blockquote>
+<p><code>print(&quot;hello javascript&quot;)</code>.</p>
+</blockquote>
+<p>After that, go to the <code>Tools</code> menu and select <code>Build System</code>; there, you'll see the new build system you created by the name you gave it (in our example, it's DeskJS). You can now select it and wait for the running process to complete. Alternatively, you can press on the shortcut keys <code>Ctrl + B</code> in Sublime Text to do the same.</p>
+<p>A console will then appear right below the editor as your file is being run. Thereafter, the result will automatically be printed out for you in the console with the time it took for the process to be completed! Now that's fun...</p>
+<blockquote>
+<p>If this doesn't work out for you, please feel free to consult by going to <a href="https://www.sublimetext.com/forum/">Sublime Text's forum</a> or asking over at <a href="http://stackoverflow/">Stackoverflow.com</a> to be assisted.</p>
+</blockquote>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

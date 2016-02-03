@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>APIs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: "Segoe UI", Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 14px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 2px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 1px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 1px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>DeskJS APIs</h2>
+<blockquote>
+<p>What's an API?</p>
+</blockquote>
+<p>An <strong>API</strong> or Application Programming Interface is <em>(in a very simple and straightforward explanation</em>) a set of implemented methods that enable you to  easily program a particular software or use some of its features developed for you as a programmer.</p>
+<p>Below are some of the APIs implemented in DeskJS:</p>
+<h3>The <code>notify()</code> API</h3>
+<p>This API method allows you to print messages to the application's <em>title</em> area. It's a substitute for the <code>print()</code> method which simply prints messages to the console.</p>
+<p>If you have tried changing any setting(s) in DeskJS, you may have noticed some messages being displayed right after the setting has been changed then after a while they disappear. Such messages are known as <strong>timeout</strong> messages and they are heavily used with settings. All you need to do is to type the API method <code>notify()</code> then your message goes in-between the two brackets.</p>
+<p>Some few examples are:</p>
+<blockquote>
+<p><code>notify(&quot;hello world!&quot;)</code></p>
+<p><code>notify(12*3)</code></p>
+<p><code>notify(&quot;i looove deskjs, it's really fun!&quot;)</code></p>
+</blockquote>
+<h3>The <code>browse()</code> API</h3>
+<p>This API method allows you to load any files or browse to any web page with DeskJS's inbuilt browser. It's also a very straightforward API so you won't need to include a rather huge line of parameters. This method takes only one parameter which is either a URL (Uniform Resource Locator) to a local file in your machine or a web address like <em>www.google.com</em>.</p>
+<p>Below are a few examples using this API method:</p>
+<blockquote>
+<p><code>browse(&quot;C:/Users/admin/Documents/hello world.html&quot;)</code></p>
+<p><code>browse(&quot;www.google.com&quot;)</code></p>
+<p><code>browse(&quot;http://www.w3schools.com/js/default.asp&quot;)</code></p>
+</blockquote>
+<p>You can also view locally existing html files within your current script's directory/folder like the <strong>Console Scripts</strong> folder. This means that if you've saved your script file in the Desktop, you can load any existing html files  that exist there. For example, to view an existing html file named &quot;<strong>hello.html</strong>&quot; that exists within your current script's directory, you can write this:</p>
+<blockquote>
+<p><code>browse(&quot;hello&quot;)</code></p>
+</blockquote>
+<p>Notice that you won't need to include the &quot;<strong>.html</strong>&quot; part of the file, but you can still add it if you want to. Html files existing in other sub-folders within your current script's directory can still be browsed-to simply by typing their relative paths based on your current script's directory. So, lets say the file <strong>hello.html</strong> now exists within the folder <strong>myfiles</strong> within your current script's directory; all you'll need to write is this:</p>
+<blockquote>
+<p><code>browse(&quot;myfiles/hello&quot;)</code></p>
+</blockquote>
+<p>This therefore means that you can nest html files within sub-folders that exist within your current script's directory.</p>
+<p>This API method will always return <code>True</code> when called.</p>
+<p>Though the browser is based on the native Internet Explorer from Microsoft <em>(which means that some websites may fail to be rendered or loaded well in the browser)</em>, it can assist you in performing some tasks with much ease than rather than with a fully fledged browser application. Plus, you can do some actual web browsing with it if you so wish to.</p>
+<h3>The <code>script</code> API</h3>
+<p>Sometimes you may want to know or get the details of the script you're currently working on in order to handle some particular task. This is where the <code>script</code> API comes in handy.</p>
+<p>The <code>script</code> API lets you get such information about your script(s) very easily. It is <em>contextually-confined</em> meaning that it's based on the current script you're working on. So whether you've saved your script in your PC or elsewhere, this API will always give you details concerning it.</p>
+<p>Below is a list of properties and method available to use:</p>
+<blockquote>
+<p><code>script.name</code> - returns the script's name <strong>with</strong> its extension</p>
+<p><code>script.nameOnly</code> - returns the script's name <strong>without</strong> its extension</p>
+<p><code>script.extension</code> or <code>ext</code> - returns the script's extension (with a <strong>&quot;.&quot;</strong> prefix - e.g <strong>.js</strong>)</p>
+<p><code>script.path</code> - returns the script's full path with its name and extension</p>
+<p><code>script.folder</code> or <code>directory</code> - returns the script's current folder/directory</p>
+<p><code>script.include()</code> - lets you include other JavaScript files in your current script <em>(including their functions and other declarations such as variables)</em></p>
+</blockquote>
+<p>We'll now discuss more on the <code>script.include()</code> API method.</p>
+<p>One current limitation of JavaScript engines that exist outside the browser is the ability to include other script files in your current script. As usual, within the browser, you can do this simply by adding <code>&lt;script src=&quot;myscript.js&quot;&gt;&lt;/script&gt;</code> within your html file with <code>&quot;myscript.js&quot;</code> being the script you're including then everything you declared within the script file will be included in your current script.</p>
+<p>Now with DeskJS, you can include other JavaScript files anywhere in your code simply by adding <code>script.include(&quot;file to include&quot;)</code> within the current script file you're working on. You don't need to include the extension &quot;<strong>.js</strong>&quot; as this will be done for you. They are sort of treated like modules in DeskJS. A good example is if you want to include a script named <strong>hello.js</strong> that exists in your current script's directory. All you'll need to do is to write <code>script.include(&quot;hello&quot;)</code> in your current script. Plus, you won't need to save scripts so as to use this API method. This can be done even without having saved your code. Apart from including other scripts, you can also include JavaScript code. For example, you can include a <em>function</em> that you can then use in your code like this:</p>
+<blockquote>
+<p><code>script.include(&quot;function add(x,y) { return x + y }&quot;); add(2,3)</code></p>
+</blockquote>
+<p>By default, the <code>script.include()</code> API lets you include script files that exist in your current script's directory, this meaning that its scope will be based on the current directory within which your script exists. So lets say you've saved your current script in the Desktop, where another script named &quot;<strong>my other script.js</strong>&quot; also exists. To include &quot;<strong>my other script.js</strong>&quot; in your current script, you can simply do this by writing:</p>
+<blockquote>
+<p><code>script.include(&quot;my other script&quot;)</code></p>
+</blockquote>
+<p>You can then reference the code defined in the script included. If let's say there's a function called <code>add()</code> that's declared in &quot;<strong>my other script.js</strong>&quot; such as the one shown there before, you can simply reference it as though it exists in the current script by typing: <code>add(2,3)</code></p>
+<p>Here's a sample usage scenario for this:</p>
+<ul>
+<li>
+<p>Script <strong>my other script.js</strong> content:</p>
+<pre><code>function add(x,y) {
+    return x + y;
+}
+</code></pre>
+
+</li>
+<li>
+<p>Your current script's content:</p>
+<pre><code>// include the script...
+script.include(&quot;my other script&quot;);
+
+// now call the function add() with values...
+add(2,3);
+</code></pre>
+
+</li>
+</ul>
+<p>It's that easy to implement and use.</p>
+<p>But again at times, you may want to save your other scripts separately from your current script. Now let's shift the above scenario by saving the script &quot;<strong>my other script.js</strong>&quot; in a folder named &quot;<strong>scripts</strong>&quot;. To include the script, all you'll need to do is write: <code>script.include(&quot;scripts/my other script&quot;)</code></p>
+<p>The <code>/</code> character lets you access other sub-folders within your current script's directory. This scenario can therefore be represented like this:</p>
+<ul>
+<li>
+<p>Script <strong>my other script.js</strong> content:</p>
+<pre><code>function add(x,y) {
+    return x + y;
+}
+</code></pre>
+
+</li>
+<li>
+<p>Your current script's content:</p>
+<pre><code>// include my script from the &quot;scripts&quot; sub-folder...
+script.include(&quot;scripts/my other script&quot;);
+
+// now call the function add()...
+add(2,3);
+</code></pre>
+
+</li>
+</ul>
+<p>This will be possible even for nested folders within your script's current directory.</p>
+<p>Not only can you include one script file with the <code>script.include()</code> API method but can also include multiple script files with just one <code>script.include()</code> method.
+This is done by passing an array with the list of scripts you want to include. For example, if you have are two scripts in your current script's directory namely: &quot;<strong>script1.js</strong>&quot; and &quot;<strong>script2.js</strong>&quot;, you can include them simply by typing:</p>
+<blockquote>
+<p><code>script.include([&quot;script1&quot;,&quot;script2&quot;])</code></p>
+</blockquote>
+<p>You may also represent the above scenario by creating an array and passing it as an argument to the API method:</p>
+<blockquote>
+<p><code>var files = [&quot;script1&quot;,&quot;script2&quot;]</code></p>
+<p><code>script.include(files)</code></p>
+</blockquote>
+<p>Therefore, this API can take an array as an argument with the list of scripts you wish to include. It's still possible to include scripts contained within sub-folders from your current script like this:</p>
+<blockquote>
+<p><code>script.include([&quot;scripts/script1&quot;,&quot;scripts/script2&quot;])</code></p>
+</blockquote>
+<p>or even</p>
+<blockquote>
+<p><code>script.include([&quot;scripts/script1&quot;,&quot;scripts/script2&quot;, &quot;others/script3&quot;])</code></p>
+</blockquote>
+<p>This API method can either return <code>True</code> if a script or scripts are successfully included or throw an <code>IncludeError</code> if there was an issue on inclusion.</p>
+<p>It will therefore offer you a better way of including other scripts and even code to use in any of your saved scripts. You can even try including JavaScript libraries that have been built to extend JavaScript with additional tools and features.</p>
+<h3>The <code>path</code> API</h3>
+<p>As we've seen earlier with the <code>script.include()</code> API method, you're only limited to the current script's directory or folder when including other scripts. However, with this API, you can now go beyond the scope of any script's directory to even add scripts existing in other locations in your computer.</p>
+<p>The <code>path</code> API gives you access to the all various paths in DeskJS (such as the <em>snippets</em> path) and your computer (such as <em>My Documents</em> folder) giving you a wider scope of inclusion for all your scripts. It's quite extensive but you won't need to memorize each and every pathname as it's supported in the completions list. For other editors such as <em>Sublime Text</em>, you can write a package supporting this API and others.</p>
+<p>Below is a list of paths available with DeskJS:</p>
+<blockquote>
+<p><code>path.app</code> - returns the app's folder path</p>
+<p><code>path.snippets</code> - returns the app's snippets path</p>
+<p><code>path.scripts</code> - returns the app's scripts path (Console Scripts)</p>
+<p><code>path.themes</code> - returns the app's themes path</p>
+<p><code>path.docs</code> - returns the app's documentations path</p>
+<p><code>path.settings</code> - returns the app's settings file path</p>
+</blockquote>
+<p>Below is a full list of system paths usable:</p>
+<blockquote>
+<p><code>path.computer</code> - returns the path to My Computer</p>
+<p><code>path.desktop</code> - returns the path to the Desktop folder</p>
+<p><code>path.documents</code> or <code>path.personal</code> - returns the path to My Documents folder</p>
+<p><code>path.music</code> - returns the path to My Music folder</p>
+<p><code>path.videos</code> - returns the path to My Videos folder</p>
+<p><code>path.pictures</code> - returns the path to My Pictures folder</p>
+<p><code>path.recent</code> - returns the path to the Recent folder</p>
+<p><code>path.start</code> - returns the path to the Start Menu folder</p>
+<p><code>path.startup</code> - returns the path to the Startup folder</p>
+<p><code>path.system</code> - returns the path to the System folder</p>
+<p><code>path.systemx86</code> - returns the path to the System (x86) folder</p>
+<p><code>path.programs</code> - returns the path to the Programs folder in the Start Menu folder</p>
+<p><code>path.programFiles</code> - returns the path to the Program Files folder</p>
+<p><code>path.programFilesx86</code> - returns the path to the Program Files (x86) folder</p>
+<p><code>path.windows</code> - returns the path to the Windows folder</p>
+<p><code>path.sendTo</code> - returns the path to the SendTo folder</p>
+<p><code>path.appData</code> - returns the path to the Application Data folder</p>
+<p><code>path.adminTools</code> - returns the path to the Administrative Tools folder</p>
+<p><code>path.fonts</code> - returns the path to the Fonts folder</p>
+<p><code>path.cdBurning</code> - returns the path to the file-CD writing area</p>
+<p><code>path.netShortcuts</code> - returns the path to the Network Shortcuts folder</p>
+<p><code>path.netCache</code> - returns the path to the temporary Internet files/cache folder</p>
+<p><code>path.cookies</code> - returns the path to the Internet cookies folder</p>
+<p><code>path.resources</code> - returns the path to the system's Resources folder</p>
+<p><code>path.localResources</code> - returns the path to the Local Resources folder</p>
+<p><code>path.favorites</code> or <code>path.favourites</code> - returns the path to the Favorites folder</p>
+<p><code>path.history</code> - returns the path to the Internet's History items folder</p>
+<p><code>path.pubDocuments</code> - returns the path to the <strong>Public</strong> Documents folder</p>
+<p><code>path.pubDesktop</code> - returns the path to the <strong>Public</strong> Desktop folder</p>
+<p><code>path.pubStartup</code> - returns the path to the <strong>Public</strong> Startup folder</p>
+<p><code>path.pubStart</code> - returns the path to the <strong>Public</strong> Start  Menu folder</p>
+<p><code>path.pubAdminTools</code> - returns the path to the <strong>Public</strong> Administrative Tools folder</p>
+<p><code>path.pubAppData</code> - returns the path to the <strong>Public</strong> Application Data folder</p>
+<p><code>path.pubPrograms</code> - returns the path to the <strong>Public</strong> Programs folder in the Start Menu folder</p>
+<p><code>path.pubProgramFiles</code> - returns the path to the <strong>Public</strong> Program Files folder</p>
+<p><code>path.pubProgramFilesx86</code> - returns the path to the <strong>Public</strong> Program Files (x86) folder</p>
+<p><code>path.pubMusic</code> - returns the path to the <strong>Public</strong> My Music folder</p>
+<p><code>path.pubVideos</code> - returns the path to the <strong>Public</strong> My Videos folder</p>
+<p><code>path.pubPictures</code> - returns the path to the <strong>Public</strong> My Pictures folder</p>
+</blockquote>
+<p>All the main paths in the system are therefore exposed in DeskJS for you to use while scripting. Also, as you may have noticed, all the public folders begin with a prefix <strong>pub</strong> followed by the name of the public folder thereby making it easy for you to quickly type them.</p>
+<p>We can now give an example of this API by combining it with the <code>script.include()</code> API method. Let's say you want to include a script file named <strong>hello.js</strong> located within your Desktop. This can easily be done by typing:</p>
+<blockquote>
+<p><code>script.include(path.desktop + &quot;hello&quot;)</code></p>
+</blockquote>
+<p>If the script file is probably contained within a folder in your Desktop named <strong>myfolder</strong>, you can still include it by specifying the folder name followed by the <code>/</code> character then the script name:</p>
+<blockquote>
+<p><code>script.include(path.desktop + &quot;myfolder/hello&quot;)</code></p>
+</blockquote>
+<p>Other examples are:</p>
+<blockquote>
+<p><code>script.include(path.documents + &quot;popups&quot;)</code></p>
+<p><code>script.include(path.pubDocuments + &quot;scripts/sample script&quot;)</code></p>
+<p><code>script.include(path.appData + &quot;samples/js/myfunctions&quot;)</code></p>
+</blockquote>
+<p>If you happen to reference a path that doesn't exist in this API (like <code>path.abcd</code>), the Interpreter will return an <code>undefined</code> result meaning that the path you're trying to reference is not defined anywhere within the <code>path</code> API.</p>
+<blockquote>
+<p><a href="Manuals.html">Back to contents</a></p>
+</blockquote>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

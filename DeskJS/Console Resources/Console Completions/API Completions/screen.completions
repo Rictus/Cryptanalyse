@@ -1,0 +1,7 @@
+width|displays the width of the screen in pixels|width
+height|displays the height of the screen in pixels|height
+availWidth|displays the available width of the screen in pixels|availWidth
+availHeight|displays the available height of the screen in pixels|availHeight
+resolution|displays the full screen's resolution in "W x H" format|resolution
+colorDepth|this returns the number of bits used to display one color|colorDepth
+pixelDepth|this returns the pixel-depth of the screen|pixelDepth
