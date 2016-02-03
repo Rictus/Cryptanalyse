@@ -11,6 +11,7 @@ var gui = {
         baseIdxCoincidence = document.getElementById('baseIdxCoincidence');
 
 
+
         submitButton.addEventListener('click', function () {
             core.process(inputTextElement.value, gui.appendData);
         });
