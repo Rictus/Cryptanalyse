@@ -71,13 +71,13 @@ var analyze = {
         var col_char;
         var lin_char;
         var elem_char;
-        for (var i = 0; i < NB_LETTERS_ALPHABET; i++) {
-            lin_char = String.fromCharCode(i + FIRST_LETTER_UPPERCASE_ASCII_INDEX);
+        for (var i = 0; i < c.NB_LETTERS_ALPHABET; i++) {
+            lin_char = String.fromCharCode(i + c.FIRST_LETTER_UPPERCASE_ASCII_INDEX);
             ar[lin_char] = [];
-            for (var j = 0; j < NB_LETTERS_ALPHABET; j++) {
-                col_char = String.fromCharCode(j + FIRST_LETTER_UPPERCASE_ASCII_INDEX);
-                var idx_alphabet_char = (i + j) % NB_LETTERS_ALPHABET;
-                elem_char = String.fromCharCode(FIRST_LETTER_UPPERCASE_ASCII_INDEX + idx_alphabet_char);
+            for (var j = 0; j < c.NB_LETTERS_ALPHABET; j++) {
+                col_char = String.fromCharCode(j + c.FIRST_LETTER_UPPERCASE_ASCII_INDEX);
+                var idx_alphabet_char = (i + j) % c.NB_LETTERS_ALPHABET;
+                elem_char = String.fromCharCode(c.FIRST_LETTER_UPPERCASE_ASCII_INDEX + idx_alphabet_char);
                 ar[lin_char][col_char] = elem_char;
             }
         }
@@ -97,7 +97,7 @@ var analyze = {
         var char_frequency = {};
 
         //from a to z
-        for (var i = FIRST_LETTER_UPPERCASE_ASCII_INDEX; i < LAST_LETTER_UPPERCASE_ASCII_INDEX; i++) {
+        for (var i = c.FIRST_LETTER_UPPERCASE_ASCII_INDEX; i < c.LAST_LETTER_UPPERCASE_ASCII_INDEX; i++) {
             var ch = String.fromCharCode(i);
             char_frequency[ch] = {
                 count: 0,
@@ -142,7 +142,7 @@ var analyze = {
         } else if (typeof input === "string") {
             var char_frequency = [];
             //from a to z
-            for (var i = FIRST_LETTER_UPPERCASE_ASCII_INDEX; i <= LAST_LETTER_UPPERCASE_ASCII_INDEX; i++) {
+            for (var i = c.FIRST_LETTER_UPPERCASE_ASCII_INDEX; i <= c.LAST_LETTER_UPPERCASE_ASCII_INDEX; i++) {
                 var ch = String.fromCharCode(i);
                 char_frequency[ch] = {count: 0};
             }
@@ -198,7 +198,7 @@ var analyze = {
                 var idx = this.getIndexOfCoincidence(matches[matchIdx], false);
                 //TODO
                 if (idx == 0) { //Ignorer
-                    console.warn(matches[matchIdx]);
+                    console.log(matches[matchIdx]);
                 } else {
                     //Put in array
                 }
@@ -223,17 +223,17 @@ var analyze = {
             i = 0;
             while (!uniqueDivisorFound && i < (str.length - nbLetters + 1)) {
                 xgram = str.substr(i, nbLetters);
-                var ar = subStrIndexes(str, xgram);
+                var ar = f.subStrIndexes(str, xgram);
                 if (ar.length > 1) {
                     res[nbLetters][xgram] = ar;
                     res[nbLetters][xgram]["distance"] = Math.abs(ar[0] - ar[1]);
-                    res[nbLetters][xgram]["divisors"] = findDivisors(res[nbLetters][xgram]["distance"]);
+                    res[nbLetters][xgram]["divisors"] = f.findDivisors(res[nbLetters][xgram]["distance"]);
                     if (res[nbLetters][xgram]["divisors"].length > 0) {
-                        divisorsArray = divisorsArray.length == 0 ? res[nbLetters][xgram]["divisors"] : joinArrays(res[nbLetters][xgram]["divisors"], divisorsArray);
+                        divisorsArray = divisorsArray.length == 0 ? res[nbLetters][xgram]["divisors"] : f.mergeArrays(res[nbLetters][xgram]["divisors"], divisorsArray);
                     }
-                    console.log(divisorsArray);
+                    //console.log(res[nbLetters][xgram]["distance"]+"  "+res[nbLetters][xgram]["divisors"]);
+                    //console.log(divisorsArray);
                     if (divisorsArray.length == 1) {
-                        console.log(divisorsArray);
                         uniqueDivisorFound = true;
                     }
                 }
@@ -243,11 +243,18 @@ var analyze = {
             if (nbKeys == 0) {
                 delete res[nbLetters];
             } else {
-                console.log("Trouve " + nbKeys + " cas de duplications de " + nbLetters + "-grammes.");
+                console.log(nbKeys + " cas de duplications de " + nbLetters + "-grammes.");
             }
             nbLetters++;
         }
-        console.log(res);
+        /*
+         divisorsArray = f.removeDuplications(divisorsArray);
+         console.log(divisorsArray.sort(function (a, b) {
+         if (a > b) return -1;
+         if (a < b) return 1;
+         return 0;
+         }));*/
+        //console.log(res);
 
     }
 };

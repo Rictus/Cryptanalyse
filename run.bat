@@ -1,1 +1,1 @@
-node ./JS/index.js %*
+node ./JS/cmd.js %*

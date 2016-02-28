@@ -1,22 +1,9 @@
+'use strict';
 var c = require('./constants.js');
 
 var diacriticsMap = {};
 
 
-function help() {
-    console.log("Usage : ");
-    console.log("-e|-d|-a   -fi|-si|-ti path|string   [-fo outputpath] -k keystring");
-    console.log("-e : Encrypt the input stream with the given key");
-    console.log("-d : Decrypt the input stream with the given key");
-    console.log("-a : Analyze the input stream to find the key length and try to decrypt it.");
-
-    console.log("-fi -si -ti specify input stream");
-    console.log("-fi for a file, next argument should be a path");
-    console.log("-si for a string, next argument is the string");
-    console.log("-ti for one of programs texts. See TEXT Directory, next argument should be the name of the file without extension.");
-    console.log("-fo redirect the output in a file");
-    console.log("if -fo is not specified, the result of the command is display.");
-}
 /**
  * Every lowercase char is transformed into uppercase char.
  * Remove every char that is not between A-Z or 0-9.
@@ -68,15 +55,16 @@ function isFloat(n) {
 }
 
 function isPrimeNumber(n) {
-    if (n == 0 || n == 1 || n % 2 == 0) return false;
+    if (typeof n !== "number") return false;
+    if (n == 0 || n == 1) return false;
     if (n == 2 || n == 3) return true;
+    if (n % 2 == 0) return false;
 
     var limit = Math.sqrt(n);
     var i = 3;
     var isPrimeNumber = true;
     while (isPrimeNumber && i <= limit) {
         if (isInt(n / i)) {
-            console.log(i + " can divide " + n + " = " + (n / i));
             isPrimeNumber = false;
         }
         i++;
@@ -110,24 +98,59 @@ function findDivisors(n, giveObviousDivisors) {
 /**
  * Return an array of all primary numbers that can divide given n.
  * @param n
- * @param giveObviousDivisors True if you also want 1 and n in the array. False by default
- *///TODO
-function findPrimeDivisors(n, giveObviousDivisors) {
-    giveObviousDivisors = typeof giveObviousDivisors === "boolean" ? giveObviousDivisors : false;
-    var limit = Math.sqrt(n);
-    var d = 2;
-    var divisors = [];
-    if (giveObviousDivisors)
-        divisors.push(1);
-    while (d < limit) {
-        if (isInt(n / d)) {
-            divisors.push(d);
+ * @param internalArray Use for recursivity. You should not give anything here. Just leave it undefined.
+ */
+function findPrimeDivisors(n, internalArray) {
+    var divisors = findDivisors(n, false);
+    var indexDivisor = 0;
+    var primeDivisorsArray = typeof internalArray === "undefined" ? [] : internalArray;
+    var getNextPrimeDivisor = function () {
+        if (indexDivisor < divisors.length && isPrimeNumber(divisors[indexDivisor])) {
+            indexDivisor++;
+            return divisors[indexDivisor - 1];
+        } else if (indexDivisor + 1 < divisors.length) {
+            indexDivisor++;
+            return getNextPrimeDivisor();
+        } else {
+            return false;
         }
-        d = d + 1;
+    };
+
+    var d;
+    var e;
+    d = getNextPrimeDivisor();
+    if (d === false) {
+        primeDivisorsArray.push(n);
+        return primeDivisorsArray;
+    } else {
+        primeDivisorsArray.push(d);
+        e = findPrimeDivisors(n / d, primeDivisorsArray);
     }
-    if (giveObviousDivisors)
-        divisors.push(n);
-    return divisors;
+    return primeDivisorsArray;
+}
+
+function removeDuplications(ar) {
+    for (var i = 0; i < ar.length; i++) {
+        for (var j = 0; j < ar.length; j++) {
+            if (i != j && ar[i] == ar[j]) {
+                ar.splice(j, 1);
+            }
+        }
+    }
+    return ar;
+}
+
+/**
+ * Return an array of values that can be found in one of arrays
+ * @param ar1
+ * @param ar2
+ * @returns {Array}
+ */
+function mergeArrays(ar1, ar2) {
+    for (var i = 0; i < ar1.length; i++) {
+        ar2.push(ar1[i]);
+    }
+    return ar2;
 }
 
 /**
@@ -174,6 +197,7 @@ module.exports = function () {
         findDivisors: findDivisors,
         findPrimeDivisors: findPrimeDivisors,
         joinArrays: joinArrays,
-        help: help
+        mergeArrays: mergeArrays,
+        removeDuplications: removeDuplications
     }
 };
