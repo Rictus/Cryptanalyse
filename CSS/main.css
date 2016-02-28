@@ -18,5 +18,8 @@ td {
   border: solid 1px black;
 }
 td {
-  padding: 0 5px;
+  padding: 15px;
+}
+td.break {
+  word-break: break-all;
 }

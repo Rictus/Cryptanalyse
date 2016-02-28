@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/main.css"/>
+</head>
+<body>
+
+
+<div class="center-wrap">
+
+
+    <textarea id="textInput" cols="30" rows="10">L'idée que la matière se compose de particules élémentaires date au moins du vie siècle av. J.-C.. À l'époque, elle reposait au fond sur l'incapacité à maîtriser la notion de continu : voir les paradoxes de Zénon d'Élée.
+
+La doctrine philosophique de l'atomisme a été étudiée par les philosophes grecs, tels que Leucippe, Démocrite et Épicure. Bien qu'au xviie siècle, Isaac Newton ait pensé que la matière soit composée de particules, c'est John Dalton qui, en 1802, énonça formellement que tout est constitué d'atomes minuscules. Cette hypothèse ne devint réellement scientifique qu'à partir du moment où l'on sut estimer la taille des atomes (1865, Loschmidt ; 1870, Lord Kelvin)
+
+En 1869, le premier tableau périodique des éléments de Mendeleïev permit d'affermir le point de vue prévalant durant tout le xixe siècle que la matière était faite d'atomes. Les travaux de Thomson établirent que les atomes sont composés d'électrons légers et de protons massifs. Rutherford établit que les protons sont concentrés dans un noyau compact. Initialement, on pensait que le noyau était seulement constitué de protons et d'électrons confinés (afin d'expliquer la différence entre la charge et le nombre de masse), mais ultérieurement il s'avéra qu'il était constitué de protons et de neutrons.
+
+Au xxe siècle, les progrès de la physique nucléaire et de la physique quantique, avec les preuves spectaculaires de la fission nucléaire et de la fusion nucléaire, donnèrent naissance à une industrie capable de produire un atome à partir d'un autre, rendant même possible (mais non rentable économiquement) la transmutation de plomb en or.
+
+Tout au long des années 1950 et des années 1960, une variété ahurissante de particules a été trouvée lors d'expériences de collision : un « zoo de particules ». (Citer des exemples). Cette expression perdit de son intérêt après la formulation du modèle standard dans les années 1970, car le grand nombre de ces particules put être conçu comme résultant de combinaisons d'un relativement petit nombre de particules fondamentales, encore que le calcul des propriétés des particules composées en soit encore à ses balbutiements, et que les nombreux paramètres du modèle standard n'aient pas trouvé d'explication satisfaisante pour leurs valeurs.</textarea>
+    <button id="submit" onclick="gui.launchEncryptionDecryption('analyze')">Analyze</button>
+    <button onclick="gui.launchEncryptionDecryption('vigenere')">Vigenere</button>
+
+</div>
+<div class="center-wrap">
+    <div id="baseCharFrequency"></div>
+    <p id="baseIdxCoincidence"></p>
+    <table>
+        <tr id="encryptionResult"></tr>
+        <tr id="decryptionResult"></tr>
+    </table>
+</div>
+
+<script src="../JS/constants.js"></script>
+<script src="../JS/functions.js"></script>
+<script src="../JS/gui.js"></script>
+<script src="../JS/core.js"></script>
+<script>
+    gui.init();
+</script>
+</body>
+</html>

@@ -15,21 +15,22 @@ var gui = {
         decryptionResult$ = document.getElementById('decryptionResult');
     },
     launchEncryptionDecryption: function (algo) {
-        //console.clear();
         charFrequency$.innerHTML = "";
         idxCoincidence$.innerHTML = "";
         encryptionResult$.innerHTML = "";
         decryptionResult$.innerHTML = "";
         switch (algo) {
             case 'vigenere':
-                var key = "MUSIQUJTYHRTGERFERTUYTIUYYRTE";
+                var key = "ABCDEFG";
                 var originalText = inputText$.value;
-                var cryptedText = core.encrypt.vigenere(originalText, key);
-                var foundedKey = core.analyze.vigenere(cryptedText);
-                gui.appendCharFrequencyArray(foundedKey, charFrequency$);
+                var satinizedText = satinize(originalText, true);
+                var cryptedText = core.encrypt.vigenere(satinizedText, key);
+                //var foundKey = core.analyze.vigenere(cryptedText);
+                //gui.appendCharFrequencyArray(foundKey, charFrequency$);
                 var decryptedText = core.decrypt.vigenere(cryptedText, key);
-                encryptionResult$.innerHTML = "<th>Cryptage</th><td>" + originalText + "</td><td>" + cryptedText + "</td>";
-                decryptionResult$.innerHTML = "<th>Decryptage</th><td>" + cryptedText + "</td><td>" + decryptedText + "</div>";
+                encryptionResult$.innerHTML = "<th>Cryptage</th><td class='break'>" + originalText + "</td><td class='break'>" + cryptedText + "</td>";
+                decryptionResult$.innerHTML = "<th>Decryptage</th><td class='break'>" + cryptedText + "</td><td class='break'>" + decryptedText + "</div>";
+                core.analyze.findKeyByXGrams(cryptedText);
                 break;
             case 'analyze':
                 core.process(inputText$.value, gui.appendData);
