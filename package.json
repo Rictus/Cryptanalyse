@@ -1,4 +1,7 @@
 {
+  "description": "Vigenere encryption, decryption and cryptanalyse with some visual representation.",
+  "license": "MIT",
+  "repository": "https://github.com/Rictus/Cryptanalyse",
   "dependencies": {
     "bignumber": "^1.1.0"
   }

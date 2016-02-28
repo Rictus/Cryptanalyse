@@ -64,7 +64,7 @@ var decrypt = {
     }
 };
 var analyze = {
-    getVigenereCipherArray: function () {//USeless
+    getVigenereCipherArray: function () {//Useless
         console.group("Vigenere Cipher");
         console.time("vigenere_ciphere");
         var ar = [];
@@ -205,7 +205,7 @@ var analyze = {
             }
         }
     },
-    //Déterminer la taille de la clef à partir des x-grammes
+    //Dï¿½terminer la taille de la clef ï¿½ partir des x-grammes
     findKeyByXGrams: function (str, min, max) {
         if (typeof str !== "string" || str.length == 0) {
             return false;

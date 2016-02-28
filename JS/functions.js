@@ -2,6 +2,21 @@ var c = require('./constants.js');
 
 var diacriticsMap = {};
 
+
+function help() {
+    console.log("Usage : ");
+    console.log("-e|-d|-a   -fi|-si|-ti path|string   [-fo outputpath] -k keystring");
+    console.log("-e : Encrypt the input stream with the given key");
+    console.log("-d : Decrypt the input stream with the given key");
+    console.log("-a : Analyze the input stream to find the key length and try to decrypt it.");
+
+    console.log("-fi -si -ti specify input stream");
+    console.log("-fi for a file, next argument should be a path");
+    console.log("-si for a string, next argument is the string");
+    console.log("-ti for one of programs texts. See TEXT Directory, next argument should be the name of the file without extension.");
+    console.log("-fo redirect the output in a file");
+    console.log("if -fo is not specified, the result of the command is display.");
+}
 /**
  * Every lowercase char is transformed into uppercase char.
  * Remove every char that is not between A-Z or 0-9.
@@ -22,7 +37,7 @@ function satinize(str, removeWhiteSpaces) {
 
 /**
  * Replace every special char with the normal corresponding char.
- * e.g. :  é become e
+ * e.g. :  ï¿½ become e
  * @param str
  * @returns {string|void|XML}
  */
@@ -158,6 +173,7 @@ module.exports = function () {
         isPrimeNumber: isPrimeNumber,
         findDivisors: findDivisors,
         findPrimeDivisors: findPrimeDivisors,
-        joinArrays: joinArrays
+        joinArrays: joinArrays,
+        help: help
     }
 };

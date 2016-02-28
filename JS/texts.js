@@ -4,3 +4,7 @@ var matiereNoire = "La matière noire ou matière sombre (traduction de l'anglai
 
 
 exports.matiereNoire = matiereNoire;
+
+exports.filePaths = {
+    "lecorbeauetlerenard": "./TEXT/LeCorbeauEtLeRenard.txt"
+};
