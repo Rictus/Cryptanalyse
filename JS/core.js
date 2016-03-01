@@ -13,7 +13,7 @@ var process = function (text, onDone) {
 };
 var encrypt = {
     vigenere: function (str, key) {
-        str = f.removeDiacritics(str.toUpperCase());
+        str = f.satinize(f.removeDiacritics(str.toUpperCase()), true);
         var keyCharAlphabetIdx;
         var originalCharAlphabetIdx;
         var cryptedCharAlphabetIdx;
@@ -196,7 +196,7 @@ var analyze = {
             //calculate IC for each matches
             for (var matchIdx = 0; matchIdx < matches.length - 1; matchIdx++) {
                 var idx = this.getIndexOfCoincidence(matches[matchIdx], false);
-                //TODO
+                console.log(idx + "  " + matches[matchIdx]);
                 if (idx == 0) { //Ignorer
                     console.log(matches[matchIdx]);
                 } else {
@@ -206,6 +206,7 @@ var analyze = {
         }
     },
     //D�terminer la taille de la clef � partir des x-grammes
+    // Probleme : Tous les diviseurs de chaque distance trouvé ne sont pas à prendre en cours. Cela fausse l'automatisation
     findKeyByXGrams: function (str, min, max) {
         if (typeof str !== "string" || str.length == 0) {
             return false;
@@ -229,10 +230,10 @@ var analyze = {
                     res[nbLetters][xgram]["distance"] = Math.abs(ar[0] - ar[1]);
                     res[nbLetters][xgram]["divisors"] = f.findDivisors(res[nbLetters][xgram]["distance"]);
                     if (res[nbLetters][xgram]["divisors"].length > 0) {
-                        divisorsArray = divisorsArray.length == 0 ? res[nbLetters][xgram]["divisors"] : f.mergeArrays(res[nbLetters][xgram]["divisors"], divisorsArray);
+                        divisorsArray = divisorsArray.length == 0 ? res[nbLetters][xgram]["divisors"] : f.joinArrays(res[nbLetters][xgram]["divisors"], divisorsArray);
                     }
-                    //console.log(res[nbLetters][xgram]["distance"]+"  "+res[nbLetters][xgram]["divisors"]);
-                    //console.log(divisorsArray);
+                    console.log(res[nbLetters][xgram]["distance"]+"  "+res[nbLetters][xgram]["divisors"]);
+                    console.log(divisorsArray);
                     if (divisorsArray.length == 1) {
                         uniqueDivisorFound = true;
                     }
@@ -255,7 +256,7 @@ var analyze = {
          return 0;
          }));*/
         //console.log(res);
-
+        return uniqueDivisorFound;
     }
 };
 
