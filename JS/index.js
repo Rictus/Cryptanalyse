@@ -11,7 +11,7 @@ t = f.satinize(f.removeDiacritics(t), true);
 var key = "TROUVE";
 var c = core.encrypt.vigenere(t, key);
 console.log((t).split('').join(' '));
-console.log((key+key+key+key+key+key+key+key+key+key+key+key+key+key+key+key+key+key+key+key+key+key+key+key).split('').join(' '));
+console.log((Array(Math.round(t.length / key.length) + 1).join(key)).split('').join(' '));
 console.log((c).split('').join(' '));
 var l = 10000000;
 var theoryStr = "";
@@ -32,15 +32,25 @@ for (var i = 0; i < t.length && i < l; i++) {
     var encryptionFormula = (tAlphaIdx + KAlphaIdx) % constants.NB_LETTERS_ALPHABET; //Formule utilisé pour crypter
     var letterEAlphaIdx = "E".charCodeAt(0) - constants.FIRST_LETTER_UPPERCASE_ASCII_INDEX;
 
-    var theoryFormula = (cAlphaIdx - letterEAlphaIdx); // Theorie : Trouver le texte initial à partir du crypté sans la clef
+    var theoryFormula = (letterEAlphaIdx - cAlphaIdx) % constants.NB_LETTERS_ALPHABET; // Theorie : Trouver le texte initial à partir du crypté sans la clef
     theoryFormula = theoryFormula < 0 ? theoryFormula + constants.NB_LETTERS_ALPHABET : theoryFormula;
 
     var theoryChar = String.fromCharCode((theoryFormula + constants.FIRST_LETTER_UPPERCASE_ASCII_INDEX));
-    if (theoryFormula == tAlphaIdx)
-        theoryStr += theoryChar;
     //console.log(tChar + "(" + key[idxKey] + ")" + cChar + " - " + tAlphaIdx + "(" + KAlphaIdx + ")" + cAlphaIdx + " - " + encryptionFormula + "?" + theoryFormula + "=>"+theoryChar);
-    else
-        theoryStr += "_";
-}
+    if (theoryFormula == tAlphaIdx) {
+        theoryStr += theoryChar;
+    } else {
 
+        theoryFormula = (cAlphaIdx - letterEAlphaIdx) % constants.NB_LETTERS_ALPHABET; // Theorie : Trouver le texte initial à partir du crypté sans la clef
+        theoryFormula = theoryFormula < 0 ? theoryFormula + constants.NB_LETTERS_ALPHABET : theoryFormula;
+
+        theoryChar = String.fromCharCode((theoryFormula + constants.FIRST_LETTER_UPPERCASE_ASCII_INDEX));
+        //console.log(tChar + "(" + key[idxKey] + ")" + cChar + " - " + tAlphaIdx + "(" + KAlphaIdx + ")" + cAlphaIdx + " - " + encryptionFormula + "?" + theoryFormula + "=>"+theoryChar);
+        if (theoryFormula == tAlphaIdx)
+            theoryStr += theoryChar;
+        else {
+            theoryStr += "_";
+        }
+    }
+}
 console.log(theoryStr.split('').join(' '));
