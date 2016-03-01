@@ -8,13 +8,17 @@ var Wikipedia_Crypted_Example_Fr = "KQOWEFVJPUJUUNUKGLMEKJINMWUXFQMKJBGWRLFNFGHU
 
 exports.matiereNoire = matiereNoire;
 exports.Wikipedia_Example_Fr = Wikipedia_Crypted_Example_Fr;
+
 var filePaths = {
-    "lecorbeauetlerenard": "./TEXT/LeCorbeauEtLeRenard.txt"
+    "lecorbeauetlerenard": "./TEXT/LeCorbeauEtLeRenard.txt",
+    "enex": "./TEXT/English.txt",
+    "hameletfr": "./TEXT/Hamlet_Fr.txt",
+    "assomoir": "./TEXT/Lassomoir.txt"
 };
 
 exports.getContent = function (key) {
     if (typeof filePaths[key] === "string") {
-        var filepath = "."+filePaths[key];
+        var filepath = "." + filePaths[key];
         try {
             fs.accessSync(filepath, fs.F_OK | fs.R_OK);
             return fs.readFileSync(filepath, {encoding: "utf8"});
